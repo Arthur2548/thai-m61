@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    
+  </body>
+</html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <base target="_top">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mitr">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <script src="https://kit.fontawesome.com/6a972cf3a7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+body {
+  font-family: "Mitr"
+}
+</style>
+    </head>
+    <body>
+      <!doctype html>
+<html lang="en">
+  <head>
+ <!-- Required meta tags -->
+ <base target="_top">
+     <!--font awesome-->
+    <script src="https://kit.fontawesome.com/ad42651166.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="1h8sw0B8Ewl_42jaorGQgOrhV_44UtW-t3AsD1s1d88M" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="1h8sw0B8Ewl_42jaorGQgOrhV_44UtW-t3AsD1s1d88M" crossorigin="anonymous">
+ <link href='https://fonts.googleapis.com/css?family=Sarabun' rel='stylesheet' type='text/css'>
+ 
+<style type='text/css'>
+ 
+@font-face {
+  font-family: 'Sarabun';
+}
+ 
+body { font-family: 'Sarabun' !important; }
+ 
+::placeholder {
+  color: peachpuff;
+  font-size: 16px;
+  text-align: center;
+}
+ 
+</style>
+ 
+  </head>
+  <body>
+<div class="container">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">ระบบแจ้งคะแนนรายวิชาภาษาไทย ม.๖/๑</a>
+            <h4 class="prompt text-white"><img src="data:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhj2jFaqTBlhIzWxH5R-TGgCaif_7xMX36b7xC1h8zc-FRkIAYnHf68bak9Ogbv4sa1G0&usqp=CAU" weight="60" height="60"> </h4>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav mr-auto w-100 justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://kruarthurclassroom.blogspot.com/" target="_blank"><i class="fas fa-home mr-2"></i> เว็ปไซต์ครูอาร์เธอร์</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+ <div class="alert alert-warning" role="alert" background-color: #ffed00>
+        <h6 class="font-weight-bold"><i class="fas fa-book-reader "></i>
+         วิธีการค้นหาข้อมูล</h6>
+        <p>1. กรอกเลขประจำตัวนักเรียน ลงในช่องค้นหา 
+       <br>2. รอสักครู่ ระบบจะแสดงข้อมูลให้โดยอัตโนมัติ</p>
+ </div> 
+
+        <div class="container">
+            <br>
+            <div class="row">
+              <div class="col ">
+             
+             <div class="row">
+              <div class="col-md-4 mx-auto">
+             <div class="card text-center">
+             <div class="card-header bg-primary text-light">
+             <i class="far fa-address-card"></i> ระบบแจ้งคะแนนนักเรียนวิชาภาษาไทย 
+             </div>
+             <div class="card-body">
+                  <!-- ## ฟอร์มค้นหา------------------------------------------------ -->
+                  <form id="search-form" class="form-inline" onsubmit="handleFormSubmit(this)">
+                    <div class="form-group mb-2">
+                      <label for="searchtext"><i class="fas fa-search"></i> กรุณากรอกเลขประจำตัว</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                      <input type="text" class="form-control" id="searchtext" name="searchtext" placeholder="เลขประจำตัว">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">ค้นหา</button>
+                  </form>
+                  <!-- ## ปิดฟอร์ม ------------------------------------------- -->
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+              </div>    
+            </div>
+            <div class="row">
+              <div class="col">
+             
+                <!-- ## สร้างตาราง ------------------------------------------------ -->
+                <div id="search-results" class="table-responsive">
+                  <!-- แสดงข้อมูลที่นี่ -->
+                </div>
+                <!-- ## จบตาราง ------------------------------------------------ -->
+                   
+              </div>
+            </div>
+        </div>
+        <!--##JAVASCRIPT ---------------------------------------------------- -->
+        <script>
+        
+          window.addEventListener("load", preventFormSubmit, true); 
+
+          function preventFormSubmit() {
+            var forms = document.querySelectorAll('form');
+            for (var i = 0; i < forms.length; i++) {
+              forms[i].addEventListener('submit', function(event) {
+              event.preventDefault();
+              });
+            }
+          }
+          
+           //ทำการส่งค่าจากฟอร์ม
+          function handleFormSubmit(formObject) {
+            google.script.run.withSuccessHandler(createTable).processForm(formObject);
+            document.getElementById("search-form").reset();
+          }
+         
+          //สร้างตารางและข้อมูลในตาราง
+          function createTable(dataArray) {
+            if(dataArray && dataArray !== undefined && dataArray.length != 0){
+              var result = "<table class='table table-sm table-striped table-hover' id='dtable'>"+
+                           "<thead style='white-space: nowrap'>"+
+                             "<tr>"+
+                             "<th scope='col'>รหัสประจำตัว"+
+                              "<th scope='col'style='white-space: nowrap;'>ชื่อและนามสกุลของนักเรียน</th>"+
+                              "<th scope='col'>งานที่ 1</th>"+
+                              "<th scope='col'>งานที่ 2</th>"+
+                              "<th scope='col'>งานที่ 3</th>"+
+                              "<th scope='col'>งานที่ 4</th>"+
+                              "<th scope='col'>งานที่ 5</th>"+
+                              "<th scope='col'>ก่อนกลางภาค</th>"+
+                             "<th scope='col'>งานที่ 6</th>"+
+                             "<th scope='col'>งานที่ 7</th>"+
+                              "<th scope='col'>งานที่ 8</th>"+
+                              "<th scope='col'>งานที่ 9</th>"+
+                             "<th scope='col'>สมุด</th>"+
+                             "<th scope='col'>ปลายภาค+สมุด</th>"+
+                              "<th scope='col'>คะแนนสอบกลางภาค</th>"+
+                              "<th scope='col'>รวม</th>"+
+                             "<th scope='col'>คะแนนสอบปลายภาค</th>"+
+                             "<th scope='col'style='background-color: #e6ccff;'>คะแนนรวมทั้งหมด</th>"+
+                             "<th scope='col'style='background-color: #e6ccff;'>เกรดเฉลี่ย</th>"+
+                              "<th scope='col'>เวลาเข้าเรียน</th>"+
+                              "<th scope='col'>ค่า level ของนักเรียน</th>"+
+                             "<th scope='col'>คะแนนพิเศษ</th>"+
+                                      
+                            "</tr>"+
+                          "</thead>";
+              for(var i=0; i<dataArray.length; i++) {
+                  result += "<tr>";
+                  for(var j=0; j<dataArray[i].length; j++){
+                      result += "<td class=\"table-info\">"+dataArray[i][j]+"</td>";
+                  }
+                  result += "</tr>";
+              }
+              result += "</table>";
+              var div = document.getElementById('search-results');
+              div.innerHTML = result;
+            }else{
+              var div = document.getElementById('search-results');
+              //div.empty()
+              div.innerHTML = "ไมพบข้อมูลที่ค้นหา!";
+            }
+          }
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+        <!-- Footer -->
+<div class="container">
+        <footer><br>
+            <div class="bg-primary">
+                <div class="container">
+                    <br>
+                    <div class="row">
+                        <div class="clo-lg-3 col-md-auto">
+                            <h6 class="prompt text-white"><i class="fa fa-user-circle-o mr-3"></i>โรงเรียนดงขุยวิทยาคม</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
+        <!-- ปิดแทก Footer -->
+         
+    </body>
+</html>
